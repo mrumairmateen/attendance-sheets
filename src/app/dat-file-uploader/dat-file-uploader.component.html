@@ -1,0 +1,101 @@
+<div class="container mt-4">
+  <div class="row">
+    <h3>Select dates from and to & Upload .dat sheet</h3>
+    <div class="col-md-6">
+      <form class="row row-cols-sm-auto">
+        <div class="col-12">
+          <div class="dp-hidden position-absolute">
+            <div class="input-group">
+              <input
+                name="datepicker"
+                class="form-control"
+                ngbDatepicker
+                #datepicker="ngbDatepicker"
+                [autoClose]="'outside'"
+                (dateSelect)="onDateSelection($event)"
+                [displayMonths]="2"
+                [dayTemplate]="t"
+                outsideDays="hidden"
+                [startDate]="fromDate!"
+                tabindex="-1"
+              />
+              <ng-template #t let-date let-focused="focused">
+					<span
+            class="custom-day"
+            [class.focused]="focused"
+            [class.range]="isRange(date)"
+            [class.faded]="isHovered(date) || isInside(date)"
+            (mouseenter)="hoveredDate = date"
+            (mouseleave)="hoveredDate = null"
+          >
+						{{ date.day }}
+					</span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="input-group">
+            <input
+              #dpFromDate
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dpFromDate"
+              [value]="formatter.format(fromDate)"
+              (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+            />
+            <button class="btn btn-outline-secondary border-0 bi bi-calendar3" (click)="datepicker.toggle()"
+                    type="button">
+            </button>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="input-group">
+            <input
+              #dpToDate
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dpToDate"
+              [value]="formatter.format(toDate)"
+              (input)="toDate = validateInput(toDate, dpToDate.value)"
+            />
+            <button class="btn btn-outline-secondary border-0 bi bi-calendar3" (click)="datepicker.toggle()"
+                    type="button"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6" *ngIf="toDate && fromDate">
+      <input type="file" (change)="handleFileInput($event)" class="form-control" accept=".dat"/>
+      <button class="btn btn-success mt-2" (click)="downloadExcel()" *ngIf="tableData.length > 0">Download Excel
+      </button>
+      <button *ngIf="file" class="btn btn-danger mt-2 ml-2" (click)="removeFile()">Remove file
+      </button>
+    </div>
+  </div>
+
+  <div class="row mt-4" *ngIf="tableData.length > 0 && file">
+    <div class="col-md-12">
+      <h4>Excel Data</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th class="sticky-column" *ngFor="let header of headers; let i = index">
+              {{ header }}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let row of tableData">
+            <td class="sticky-column"
+                [class.text-success]="cell === attendanceConstant.PRESENT"
+                [class.text-danger]="cell === attendanceConstant.ABSENT || cell === attendanceConstant.OFF"
+                *ngFor="let cell of row; let i = index">
+              {{ cell }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
