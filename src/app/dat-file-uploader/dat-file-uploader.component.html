@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="row">
-    <h3>Select dates from and to & Upload .dat sheet</h3>
+    <h3>Select dates from and to & Upload .dat file</h3>
     <div class="col-md-6">
       <form class="row row-cols-sm-auto">
         <div class="col-12">
@@ -64,7 +64,7 @@
       </form>
     </div>
     <div class="col-md-6" *ngIf="toDate && fromDate">
-      <input type="file" (change)="handleFileInput($event)" class="form-control" accept=".dat"/>
+      <input type="file" (change)="handleFileInput($event)" class="form-control" accept=".dat, .txt"/>
       <button class="btn btn-success mt-2" (click)="downloadExcel()" *ngIf="tableData.length > 0">Download Excel
       </button>
       <button *ngIf="file" class="btn btn-danger mt-2 ml-2" (click)="removeFile()">Remove file
