@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import * as XLSX from 'xlsx';
-import { JsonPipe, NgClass, NgForOf, NgIf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { ATTENDANCE, Employee, EMPLOYEES } from '../constants/employees';
 import {
 	NgbCalendar,
 	NgbDate,
 	NgbDateParserFormatter,
-	NgbDatepicker,
 	NgbInputDatepicker
 } from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,10 +15,7 @@ import {
 	imports: [
 		NgIf,
 		NgForOf,
-		NgbDatepicker,
-		JsonPipe,
 		NgbInputDatepicker,
-		NgClass
 	],
 	templateUrl: './dat-file-uploader.component.html',
 	styleUrls: ['./dat-file-uploader.component.scss'] // Corrected typo from 'styleUrl' to 'styleUrls'
@@ -191,7 +187,6 @@ export class DatFileUploaderComponent {
 			this.tableData.push(row);
 		});
 	}
-	
 	
 	downloadExcel() {
 		const data: any[] = [this.headers, ...this.tableData];
