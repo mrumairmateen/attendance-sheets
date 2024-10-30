@@ -15,26 +15,6 @@ export const EMPLOYEES: Employee[] = [
 		employeeName: 'Syed Shehryar'
 	},
 	{
-		employeeId: '69',
-		employeeName: 'Amer Hamza Aamir Butt'
-	},
-	{
-		employeeId: '74',
-		employeeName: 'Shayyan Syed'
-	},
-	{
-		employeeId: '77',
-		employeeName: 'Muhammad Aqil Shehzad'
-	},
-	{
-		employeeId: '88',
-		employeeName: 'Irtaza Raza'
-	},
-	{
-		employeeId: '93',
-		employeeName: 'Zain ul abedin'
-	},
-	{
 		employeeId: '92',
 		employeeName: 'Waleed ahmad'
 	},
@@ -117,6 +97,30 @@ export const EMPLOYEES: Employee[] = [
 	{
 		employeeId: '47',
 		employeeName: 'Fiazan Ibrahim'
+	},
+	{
+		employeeId: '138',
+		employeeName: 'Syed Ali Muqaddass'
+	},
+	{
+		employeeId: '139',
+		employeeName: 'Muhammad Ali Hassan Farrukh'
+	},
+	{
+		employeeId: '141',
+		employeeName: 'Yashal Waseem'
+	},
+	{
+		employeeId: '143',
+		employeeName: 'Shahrukh Mahboob'
+	},
+	{
+		employeeId: '148',
+		employeeName: 'Saliha Arslan'
+	},
+	{
+		employeeId: '147',
+		employeeName: 'Saad Ahmed'
 	},
 
 ];
