@@ -18,7 +18,7 @@ import {
 		NgbInputDatepicker,
 	],
 	templateUrl: './dat-file-uploader.component.html',
-	styleUrls: ['./dat-file-uploader.component.scss'] // Corrected typo from 'styleUrl' to 'styleUrls'
+	styleUrls: ['./dat-file-uploader.component.scss']
 })
 
 export class DatFileUploaderComponent {
@@ -166,7 +166,7 @@ export class DatFileUploaderComponent {
 			let absentCount = 0;
 			
 			this.dateRange.forEach((date: Date, index: number) => {
-				const dayMonthYear = `${ date.getDate() }-${ date.getMonth() + 1 }-${ date.getFullYear() }`; // Match 'day-month-year'
+				const dayMonthYear = `${ date.getDate() }-${ date.getMonth() + 1 }-${ date.getFullYear() }`;
 				const dayOfWeek = date.getDay();
 				
 				if (dayOfWeek === 0 || dayOfWeek === 6) {
