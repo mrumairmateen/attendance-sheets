@@ -122,5 +122,13 @@ export const EMPLOYEES: Employee[] = [
 		employeeId: '147',
 		employeeName: 'Saad Ahmed'
 	},
+	{
+		employeeId: '150',
+		employeeName: 'Okasha Faisal'
+	},
+	{
+		employeeId: '152',
+		employeeName: 'Muhammad Zaheer Murtaza'
+	},
 
 ];
